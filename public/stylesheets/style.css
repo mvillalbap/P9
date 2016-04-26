@@ -8,6 +8,7 @@ body 	{ font: 16px Georgia, serif;
 		  margin-bottom: 1px;
 		  color: black;
 		  background: #EEE; }
+.main ul li	{ display: inline; }
 
 a 		{ color: #00B7FF; }
 a:visited	{ color: #00B7FF; }
@@ -20,3 +21,9 @@ section	{ text-align: left; }
 footer	{ text-align: center; }
 
 nav a	{ margin: 0px 10px 0px 0px; }
+.foto_credit	{ width: 33%;
+				  height: 33%; 
+				  display: block; 
+				  margin: auto;
+				  border-radius: 10px;
+				  padding: 2px; }

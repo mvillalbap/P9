@@ -2,4 +2,9 @@ body 	{ background: #333;
 		  font-size: xx-large; }
 .no-narrow	{ display: none; }
 
+.main ul li	{ display: block; }
+.foto_credit	{ width: 70%;
+				  height: 70%; 
+				  padding: 2px; }
+
 footer input{ font-size: large; }
