@@ -28,7 +28,7 @@
 					<h3>Información de interés:</h3>
 					<ul>
 						<% for (var i in messages.info) { %>
-							<li><% messages.info[i] %></li>
+							<li><%= messages.info[i] %></li>
 						<% } %>
 					</ul>
 				</article>
@@ -39,7 +39,7 @@
 					<h3>Tareas completadas con éxito:</h3>
 					<ul>
 						<% for (var i in messages.success) { %>
-							<li><% messages.success[i] %></li>
+							<li><%= messages.success[i] %></li>
 						<% } %>
 					</ul>
 				</article>
@@ -50,7 +50,7 @@
 					<h3>Errores encontrados:</h3>
 					<ul>
 						<% for (var i in messages.error) { %>
-							<li><% messages.error[i] %></li>
+							<li><%= messages.error[i] %></li>
 						<% } %>
 					</ul>
 				</article>
