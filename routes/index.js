@@ -11,8 +11,10 @@ router.get('/author', function(req, res, next) {
   res.render('author')
 });
 
-router.get('/quizzes', control.index);
-router.get('/quizzes/:quizId(\\d+)', control.show);
-router.get('/quizzes/:quizId(\\d+)/check', control.check);
+router.param('quizId', control.load);
+
+router.get('/quizzes', 						control.index);
+router.get('/quizzes/:quizId(\\d+)', 		control.show);
+router.get('/quizzes/:quizId(\\d+)/check', 	control.check);
 
 module.exports = router;
