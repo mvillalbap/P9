@@ -27,3 +27,12 @@ nav a	{ margin: 0px 10px 0px 0px; }
 				  margin: auto;
 				  border-radius: 10px;
 				  padding: 2px; }
+#flasherror	  {	background-color: red;
+				color: black;
+				border-color: black; }
+#flashsuccess {	background-color: green;
+				color: black;
+				border-color: black; }
+#flashinfo	  {	background-color: lightyellow;
+				color: black;
+				border-color: black; }
