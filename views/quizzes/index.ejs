@@ -1,4 +1,14 @@
 <table>
+	<form method='get' action='/quizzes'>
+		<tr>
+			<td>
+				<input type='text' placeholder='Buscar' name='search' />
+			</td>
+			<td>
+				<input type='submit' value='Buscar' />
+			</td>
+		</tr>
+	</form>
 	<% for (var i in quizzes) { %>
 
 		<tr>

@@ -19,6 +19,21 @@ exports.load = function(req,res,next,quizId){
 };
 
 exports.index = function(req,res,next){
+	if(req.query.search){
+		var busca = req.query.quiz.split(' ');
+		busca = '%' + busca.join('%') + '%';
+		models
+		.Quiz
+		.findAll({where: ["question like ?", busca],
+					order: 'question ASC'})
+		.then(function(quizzes){
+			res.render('quizzes/index.ejs', {quizzes: quizzes});
+		})
+		.catch(function(error){
+			next(error);
+		});
+		return;
+	}
 	models
 	.Quiz
 	.findAll()
