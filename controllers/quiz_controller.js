@@ -1,26 +1,39 @@
 var models = require('../models');
 
-exports.question = function(req,res,next){
+exports.index = function(req,res,next){
 	models
 	.Quiz
-	.findOne()
-	.then(function(quiz){
-		if(quiz){
-			var answer = req.query.answer || '';
-			res
-			.render('quizzes/question', {question: quiz.question, answer: answer});
-		}else{
-			throw new Error('No hay preguntas en la base de datos.');
-		}
-	}).catch(function(error){
+	.findAll()
+	.then(function(quizzes){
+		res
+		.render('quizzes/index.ejs', {quizzes: quizzes});
+	})
+	.catch(function(error){
 		next(error);
+	});
+};
+
+exports.show = function(req,res,next){
+	models
+	.Quiz
+	.findById(req.params.quizId)
+	.then(function(quiz) {
+		if(quiz) {
+			var answer = req.query.answer || '';
+			res.render('quizzes/show', {quiz: quiz, answer: answer});
+		} else {
+			throw new Error('No existe ese quiz en la base de datos');
+		}
+	})
+	.catch (function(error) { 
+		next(error); 
 	});
 };
 
 exports.check = function(req,res,next){
 	models
 	.Quiz
-	.findOne()
+	.findById(req.params.quizId)
 	.then(function(quiz){
 		if(quiz){
 			var answer = req.query.answer || '';
@@ -28,11 +41,12 @@ exports.check = function(req,res,next){
 			var exp = RegExp('^' + quiz.answer + '$','i');
 			var result = answer.match(exp)? 'Correcta' : 'Incorrecta';
 			res
-			.render('quizzes/result', {result: result, answer: answer});
+			.render('quizzes/result', {quiz: quiz, result: result, answer: answer});
 		}else{
-			throw new Error('No hay preguntas en la base de datos.');
+			throw new Error('No existe ese quiz en la base de datos.');
 		}
-	}).catch(function(error){
+	})
+	.catch(function(error){
 		next(error);
 	});
 };
