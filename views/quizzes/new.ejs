@@ -1,0 +1,15 @@
+<h2>Añadir pregunta</h2>
+<p>
+	<form method='post' action='/quizzes'>
+		<p>
+			<label for='preg' class='no-narrow'>Pregunta:</label>
+		    <input type='text' id='preg' name='quiz[question]' placeholder='Inserta pregunta' value='<%= quiz.question %>' />
+		</p>
+		<p>
+			<label for='resp' class='no-narrow'>Respuesta:</label>
+			<input type='text' id='resp' name='quiz[answer]' placeholder='Inserta respuesta' value='<%= quiz.answer %>' />
+		</p>
+		<p>
+			<a href='/quizzes'><button type='button'>Cancelar</button></a><input type='submit' value='Guardar' /></p>
+	</form>
+</p>
